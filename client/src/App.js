@@ -1,11 +1,16 @@
 
 import './App.css';
-
+import { Provider } from 'react-redux'
+import store from './store/configureStore'
+import Books from './components/Books';
 function App() {
   return (
-    <div className="App">
-    
-    </div>
+    <Provider store={store}>
+
+        <div className="App">
+        <Books/>
+        </div>
+    </Provider>
   );
 }
 
