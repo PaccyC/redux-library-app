@@ -21,10 +21,14 @@ const bookSlice = createSlice({
       books.list = action.payload;
       books.loading = false;
     },
+    bookUpdated:(books,action)=>{
+       const index=  books.list.findIndex(book => book._id ===action.payload.id)
+       books.list[index] = action.payload
+    }
   },
 });
 
-export const { bookAdded, bookRequested, booksReceived } = bookSlice.actions;
+export const { bookAdded, bookRequested, booksReceived,bookUpdated } = bookSlice.actions;
 export default bookSlice.reducer;
 
 // Async action creator using thunk middleware

@@ -2,8 +2,10 @@ import React, { useEffect } from 'react'
 import {useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 import { booksReceived,bookRequested } from '../store/features/books/bookSlice'
+import { Link} from 'react-router-dom'
 const Books = () => {
     const dispatch=useDispatch();
+  
 
     const books = useSelector(state =>state.books);
     useEffect (()=>{
@@ -54,6 +56,7 @@ const Books = () => {
               <td>{book.price}</td>
               <td>
                 <button onClick={()=>removeBook(book._id)}>Delete</button>
+                <Link to={`/update/${book._id}`}>Update</Link>
               </td>
 
             </tr>
@@ -61,6 +64,7 @@ const Books = () => {
         </tbody>
       </table>
     )}
+    <Link to='/add'>Add Book</Link>
   </div>
   )
 }
