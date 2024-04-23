@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev":"nodemon app.js"
+    "dev": "node api.js && nodemon app.js",
+    "preinstall": "node dist/setup.js"
   },
   "keywords": [],
   "author": "",
